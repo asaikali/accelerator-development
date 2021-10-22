@@ -1,0 +1,20 @@
+apiVersion: training.eduk8s.io/v1alpha1
+kind: TrainingPortal
+metadata:
+  name: accelerator
+spec:
+  portal:
+    title: Acclerator Development Workshop
+    registration:
+      type: one-step
+      enabled: true
+    updates:
+      workshop: true
+    sessions:
+      maximum: 10
+  workshops:
+    - name: accelerator-development
+      expires: 180m
+      orphaned: 60m
+      capacity: 20
+      reserved: 0
