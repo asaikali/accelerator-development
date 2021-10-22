@@ -1,0 +1,39 @@
+apiVersion: training.eduk8s.io/v1alpha2
+kind: Workshop
+metadata:
+  name: accelerator-development
+spec:
+  title: Develop an Application Accelerator
+  description: A step by step guide to create an Application Accelerator
+  vendor: eduk8s.io
+  difficulty: beginner
+  duration: 120m
+  url: https://github.com/asaikali/accelerator-development
+  content:
+    files: github.com/asaikali/accelerator-development/workshop
+  session:
+    env:
+      - name: GITEA_PASSWORD
+        value: foo
+      - name: HARBOR_PASSWORD
+        value: bar
+    namespaces:
+      budget: custom
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+      editor:
+        enabled: true
+    objects:
+      - apiVersion: v1
+        kind: LimitRange
+        metadata:
+          name: resource-limits
+        spec:
+          limits:
+            - type: PersistentVolumeClaim
+              max:
+                storage: 5Gi

@@ -1,0 +1,22 @@
+modules:
+    workshop-overview:
+        name: Workshop Overview
+        exit_sign: Getting Started
+    exercises/01-App-Accelerator:
+        name: Getting Started
+        exit_sign: Workloads
+    exercises/02-Workload:
+        name: Workloads
+        exit_sign: Supply Chain
+    exercises/03-Supply-Chain:
+        name: Supply Chain
+        exit_sign: Deployment
+    exercises/04-Deployment:
+        name: Deployment
+        exit_sign: Iteration
+    exercises/05-Iteration:
+        name: Iteration
+        exit_sign: Conclusion
+    workshop-summary:
+        name: Workshop Summary
+        exit_sign: Finish Workshop
