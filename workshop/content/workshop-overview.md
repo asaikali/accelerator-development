@@ -1,5 +1,3 @@
-# Developing an Application Accelerator
-
 This hands on tutorial walks you step by step through the process of 
 writing a Tanzu Application accelerator. We will provide a starter
 git reposistory containing some opinions for Java applications.
