@@ -17,7 +17,7 @@ git clone url-to-your-cloned-repo
 
 Create a file called `reg.yaml` 
 
- ```editor:open-file
+ ```editor:create-file
 file: example-spring-accelerator/reg.yaml
 ```
 
