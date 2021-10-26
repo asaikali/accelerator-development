@@ -43,6 +43,38 @@ example my github user id is `asaikali` so the Accelerator name will be
 
 # Register the accelerator 
 
+Submit the CRD to the AKS cluster 
+
 ```execute
 kubectl apply -f example-spring-accelerator/reg.yaml
+```
+
+You sould output similar to the one below 
+```text
+accelerator.accelerator.apps.tanzu.vmware.com/asaikali created
+```
+
+Get the list of all accelerators 
+```execute 
+kubectl get accelerators 
+``` 
+You should see you accelerator in returned in output. For eaxmple the output 
+belows the `asaikali` accelerator.
+
+```text
+NAME                         READY   REASON   AGE
+asaikali                     True             88s
+example-spring-accelerator   True             21d
+hello-fun                    True             27d
+hello-ytt                    True             27d
+node-express                 True             27d
+spring-petclinic             True             27d
+spring-sql-jpa               True             27d
+tanzu-dotnet-webapi          True             23d
+tanzu-java-web-app           True             27d
+weatherforecast-csharp       True             27d
+weatherforecast-fsharp       True             27d
+weatherforecast-steeltoe     True             27d
+```
+
 ```
