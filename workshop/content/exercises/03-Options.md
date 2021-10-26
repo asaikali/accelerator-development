@@ -2,25 +2,37 @@
 
 The Application Accelerator looks for a file called `accelerator.yaml` at the root
 of the git repo that was referenced from the `reg.yaml` you created in the previous
-steup. `accelerator.yaml` defines all the options that users can set on the accelerator
+step.
+
+The file `accelerator.yaml` defines all the options that can be set on the accelerator
 along with transformation rules to apply to the git repo that is source of the accelerator.
 
-### create the accelerator.yaml file 
+In order to avoid having to log into your Github account from the integrated terminal,
+and possibly expose your Github credentials, we recommend following the steps directly
+in the Github.com Web UI of the repo you forked in the earlier steps.
 
-In order to avoid having to log into yoru account from the integarted terminal 
-the following steps should be done directly in the GitHub.com Web UI.
+### Create the Accelerator file 
 
-Create a file file at the root of the repo you froked in the previous step called
-`accelerator.yaml` commit the empty file. 
+Create a file at the root of the repo
 
-### define metadata for the accelerator 
+![Add New File](images/add-new-file-to-repo.png)
 
-copy and paste the content below into the `accelerator.yaml` file using 
-the github.com UI and set the display name to github userid. 
+Call it `accelerator.yaml`
+
+![Name File](images/name-the-file.png)
+
+Commit the empty file. 
+
+![Commit Empty File](images/commit-the-empty-file.png)
+
+### Define metadata for the accelerator 
+
+Copy and paste the content below into the `accelerator.yaml` file using 
+the Github.com UI and set the display name to Github userid. 
 
 ```copy-and-edit
 accelerator:
-  displayName: 
+  displayName: change-the-display-name
   description: An example starting template for a spring web app
   iconUrl: https://raw.githubusercontent.com/sample-accelerators/icons/master/icon-cloud.png
   tags:
@@ -31,25 +43,25 @@ accelerator:
     - Test Patterns
 ```
 
-commit the changes on the github UI. 
+Commit the changes on the Github UI. 
 
-refresh the accelerator dashboard
+Refresh the accelerator dashboard
 
 ```dashboard:open-url
 url: http://20.42.34.233/dashboard/
 ```
 
-Your accelerator should now have a description, try finding your accelerator using the tags 
-that you registered under in the `accelerator.yaml` file. 
+Your accelerator should now have a description and tags as defined above.
+Try finding your accelerator using the tags that you registered under in the `accelerator.yaml` file. 
 
-### configure options for the Java JDK to use 
+### Configure options for the Java JDK to use 
 
 The `options` section of the `accelerator.yaml` is used to define a UI form
 that will be used to prompt users for inputs to use when using 
 the accelerator. The vaule of each option is made avilable inside a
 variable that can be referenced from the transformation section 
 
-copy and paste code snippet below into the `accelerator.yaml` and commit the changes.
+Copy and paste code snippet below into the `accelerator.yaml` and commit the changes.
 
 ```copy
   options:
@@ -66,15 +78,18 @@ copy and paste code snippet below into the `accelerator.yaml` and commit the cha
           value: "17"
 ```
 
+Notice the indentation, the `options` should be
+at the same level as `tags` in the YAML file.
+
 After commiting the changes, wait 10 seconds and refresh the
 accelerator portal to see new drop down option in the UI. If you 
 get an error message check that the YAML is formatted correctly.
 
-### configure option for removing database support 
+### Configure option for removing database support 
 
 Add a toggle button for turning off the database support, by copying
 and pasting the code snippet below into `accelerator.yaml` under
-the optios key.
+the options key.
 
 ```copy
     - name: noDB
@@ -84,21 +99,25 @@ the optios key.
       dataType: boolean
       defaultValue: false
 ```
+
+Notice the indentation again, the `name: noDB` should be
+at the same level as `name: javaVersion` in the YAML file.
+
 After commiting the changes, wait 10 seconds and refresh the
 accelerator portal to see new drop down option in the UI. If you 
 get an error message check that the YAML is formatted correctly.
 
-### configure option for enabling sonar qube 
+### Configure option for enabling Sonar Qube 
 
-Lets add add option to configure the generated project to use 
+Lets add an option to configure the generated project to use 
 sonarqube for static code analysis. We have two UI elements that 
 we want to show, the first element is a toggle button that 
-enable sonarquibe the second is an edit box that is used to 
+enables sonarquibe, the second is an edit box that is used to 
 set the name of the sonarqube project that analysis results 
 shoud be sent to. The ability to configure conditional UI 
 elements is one of the nice features of Application Accelerator.
 
-copy and paste the code snippet below into the `accelerator.yaml`
+Copy and paste the code snippet below into the `accelerator.yaml`
 under the options key. 
 
 ```copy 
