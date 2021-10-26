@@ -5,7 +5,7 @@ modules:
     exercises/01-App-Accelerator:
         name: Getting Started
         exit_sign: Register an Accelerator
-    exercises/02-Workload:
+    exercises/02-Register:
         name: Register an Accelerator
         exit_sign: Supply Chain
     exercises/03-Supply-Chain:
