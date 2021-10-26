@@ -1,34 +1,35 @@
-## validate access to the runnig accelerator portal 
+## Validate access to the running Accelerator Portal 
 
-Open the application accelerator running on AKS cluster
+Open the application accelerator running on PoC Kubernetes cluster
 
 ```dashboard:create-dashboard
 name: Accelerator
 url: http://20.42.34.233/dashboard/
 ```
-Click around the accelerator gui, in the next section of the workshop 
-we will register a new accelerator, but first we need to configure 
-`kubectl` to be able to access the AKS cluster running the accelerator.
 
-## Configure access to AKS PoC cluster 
+Click around the accelerator GUI, in the next section of the workshop 
+we will register a new accelerator, but first we need to configure 
+`kubectl` to be able to access the PoC Kubernetes cluster running the **Accelerator Portal**.
+
+## Configure access to Kubernetes PoC cluster 
 
 You will need replace the content of the `~/.kube/config` file with the 
-configuration to access the AKS culster.  
+configuration to access the PoC Kubernetes culster.  
 
 ```editor:open-file
 file: .kube/config 
 ```
 
-**replace the content of the file with the one provided over the chat**
+**Replace the content of the file with the one provided over the chat**
 
-execute the command
+Check the access to the cluster by executing the command in Terminal:
 
 ```execute
 kubectl cluster-info
 ```
 
 You should output similar to the one below, indicating you are connected 
-to the PoC AKS cluster
+to the PoC Kubernetes cluster
 
 ```text
 Kubernetes control plane is running at https://tanzuclust-morganstanleypoc-267ba7-144ebf6b.hcp.eastus.azmk8s.io:443
@@ -37,15 +38,15 @@ Metrics-server is running at https://tanzuclust-morganstanleypoc-267ba7-144ebf6b
 
 ```
 
-## get a list of deployed accelerators 
+## Get a list of deployed accelerators 
 
-Set the deafult namespace for the kubectl cli 
+Set the deafult namespace for the `kubectl` CLI
 ```execute
 kubectl config set-context --current --namespace=default
 ```
 
-The accelerators are registerd using a custom K8s CRD so you can get a
-list of all the CRDs using the command.
+The accelerators are registered using a custom Kubernetes CRD, so you can get a
+list of all the CRDs using the command:
 
 ```execute
 kubectl get accelerators
