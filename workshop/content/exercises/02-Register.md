@@ -17,12 +17,15 @@ git clone url-to-your-cloned-repo
 
 Create a placeholder for Accelerator CRD file
 
-``` execute 
+```execute 
 touch example-spring-accelerator/reg.yaml
 ```
 
-Use the integrated VSCode editor to create a file called `example-spring-accelerator/reg.yaml` in the cloned 
-repo
+Open the Accelerator CRD file
+
+```editor:open-file
+file: example-spring-accelerator/reg.yaml
+```
 
 Copy and past the yaml below into the `example-spring-accelerator/reg.yaml` file 
 
@@ -38,6 +41,7 @@ spec:
     ref:
       branch: main
 ```
+
 ## 
 
 set the name of the accelerator to be the same as your github id, for 
