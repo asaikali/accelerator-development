@@ -77,6 +77,15 @@ weatherforecast-fsharp       True             27d
 weatherforecast-steeltoe     True             27d
 ```
 
+Open the Accelerator portal and you should be able to see your accelerator 
+listed in the list of avilable acceleartor.
 ```dashboard:open-url
 url: http://20.42.34.233/dashboard/
 ```
+
+One you click on your accelerator try the "Explore files button" and also 
+Genearte and downoald a project. Notice that the downloaded zip file matches
+the accelerator name. 
+
+In the next step we will add options to acceleartor by creating an 
+`accelerator.yaml` file with metadat will be used by the poratl.

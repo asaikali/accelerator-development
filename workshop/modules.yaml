@@ -4,19 +4,16 @@ modules:
         exit_sign: Getting Started
     exercises/01-App-Accelerator:
         name: Getting Started
-        exit_sign: Register
+        exit_sign: Register An Accelerator
     exercises/02-Register:
-        name: Register
-        exit_sign: Supply Chain
+        name: Register An Accelerator
+        exit_sign: Configure Options
     exercises/03-Supply-Chain:
-        name: Supply Chain
-        exit_sign: Deployment
+        name: Configure Options
+        exit_sign: Configure Transformations
     exercises/04-Deployment:
-        name: Deployment
-        exit_sign: Iteration
-    exercises/05-Iteration:
-        name: Iteration
-        exit_sign: Conclusion
+        name: Configure Transformations
+        exit_sign: Workshop Summary
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop
