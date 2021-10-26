@@ -15,13 +15,10 @@ git clone url-to-your-cloned-repo
 
 ## define Accelerator CRD file 
 
-Create a file called `reg.yaml` 
+Use the integrated VSCode editor to create a file called `example-spring-accelerator/reg.yaml` in the cloned 
+repo
 
- ```editor:create-file
-file: example-spring-accelerator/reg.yaml
-```
-
-Copy and past the yaml below into the `reg.yaml` file 
+Copy and past the yaml below into the `example-spring-accelerator/reg.yaml` file 
 
 ```copy
 apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
