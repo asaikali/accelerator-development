@@ -1,4 +1,4 @@
-# Connect to the Kuberenets Cluster hosting the accelerator 
+## Environment Setup
 
 Open the application accelerator running on AKS cluster
 
