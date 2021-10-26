@@ -1,51 +1,144 @@
-At this point, our onboarding developer simply needs to verify that her application was packaged and deployed. We can do this by using the Harbor registry to verify packages have been built and are available, and the Tanzu CLI to verify the workloads are deployed and running. We can also leverage Tanzu's powerful App Live View dashboard to verify ongoing operations.
+## Configure Transformations 
 
-## Verify Packaging
+To build the acceleartor we wrote the code that expreses the 
+opinios that we want to share with deveolpers and placed the code
+in a git repo. Then we defined an `accelerator.yaml` file with
+metadata to help users find the acceleartor and UI forms that 
+enables users to set values and bind them to variables which
+we will now use. 
 
-Once the supply chain completes building and packaging Spring Sensors, it is pushed to the Harbor Registry.
+Explore the docs for the accelerator transformations 
 
-Use the following link to access the Harbor registry:
-
-```dashboard:create-dashboard
-name: Harbor
-url: https://harbor.{{ ingress_domain }}/harbor/projects/{{ harbor_project_id }}/repositories
+```dashboard:open-url
+url: https://docs.vmware.com/en/Application-Accelerator-for-VMware-Tanzu/0.3/acc-docs/GUID-creating-accelerators-transform-intro.html
 ```
 
-You will be redirected to the sign-in page.
+### Configure engine to select a subset of files from repo to transform
 
-* Username: ```admin```
-* password ```{{ ENV_HARBOR_PASSWORD }}```
+Copy and paste the content below into the `accelerator.yaml` file then commit the file
 
-Let's navigate to the repo where the supply chain published the image:
-
-```dashboard:reload-dashboard
-name: Harbor
-url: https://harbor.{{ ingress_domain }}/harbor/projects/{{ harbor_project_id }}/repositories
+```copy
+engine:
+  merge:
+    - include: [ "**/**" ]
+      exclude: [ "reg.yaml", "components/database/**", "applications/**", "ytt/**" ]
 ```
 
-## Verify Deployment
+The engine executes a serries of transformations against the files in the 
+git repo containing the code of the accelerator. In the configuration in the
+code snippet we are including all the files in the repo and then execluding 
+a set of files that we will conditionaly inclued in a serries of transformatons.
 
-We can use the Tanzu CLI to verify that the workload has made it through the supply chain:
+Refresh the accelerator page and click on the explore button notice that 
+the execluded files don't show up in the generated output.
 
-```execute
-tanzu apps workload list
+make sure to look at the contents of th `accelerator-log.md` to see how the 
+acceleartor ran transformations on the git repo. 
+
+### Set the gradle project name
+
+The `settings.gradle.kts` file contains the name of the project. We should 
+set the gradle project to match the artificatId entered by the user in the
+accelerator UI. 
+
+
+Copy and paste the code snippet below into the `accelerator.yaml` 
+as the child of the merge element you copy and pasted earlier.  
+
+```copy
+    - include: [ "settings.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: example-spring-accelerator
+              with: "#artifactId"
 ```
 
-Now let's look at the how to access our application.
+commit your changes, then reload the acclerator page. change the artifcat id 
+on click on the "explore buton" then open the `settings.gradle.kts` file
+and notice that the project name matches the value of the artificat id.
+the `#artificatId` reference in the snippent above is a varabile refrence.
+The transformation engine uses Spring Expression Language to reference 
+variables. 
 
-```execute
-kubectl get ksvc -o=jsonpath='{.items[0].status.url}{"\n"}'
+
+### Conditionaly react to the Java version 
+
+copy and paste the sinppet below into the `accelerator.yaml` as a child 
+of the top level merge node. 
+
+```copy
+- condition: "#javaVersion == '17'"
+      include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: JavaLanguageVersion.of(11)
+              with: "'JavaLanguageVersion.of(17)'"
 ```
 
-This command generates the URL for our running application. If we click on the URL in the terminal, we can begin using it.
+commit the change and refresh the accelerator page. change the Java language version
+click on the explore button and validate that the file 
+`buildSrc/src/main/kotlin/java-library-conventions.gradle.kts` has the correct 
+java version. 
 
-## Monitor Operations
+## Final configuration 
 
-One of the more exciting aspects of the TAP platform is its tools for automatically adding and visualizing application monitoring. Access the App Live view here:
+The code below shows the full configuration of the engine you can optionally
+cut and paste it into the `acclerator.yaml` to enable all the transformations
+associated with the ui. 
 
-```dashboard:create-dashboard
-name: Live
-url: https://appview.{{ ingress_domain }}
+```copy
+engine:
+  merge:
+    - include: [ "**/**" ]
+      exclude: [ "reg.yaml", "components/database/**", "applications/**", "ytt/**" ]
+    - include: [ "settings.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: example-spring-accelerator
+              with: "#artifactId"
+    - condition: "#javaVersion == '17'"
+      include: [ "buildSrc/src/main/kotlin/java-library-conventions.gradle.kts" ]
+      chain:
+        - type: ReplaceText
+          substitutions:
+            - text: JavaLanguageVersion.of(11)
+              with: "'JavaLanguageVersion.of(17)'"
+    - include: [ ".github/workflows/build.yml" ]
+      chain:
+        - type: ReplaceText
+          condition: "#javaVersion == '17'"
+          substitutions:
+            - text: 11
+              with: "'17'"
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: sonarqube
+              with: "''"
+    - condition: "#noDB == true"
+      include: [ "applications/billboard-stateless/**" ]
+    - condition: "#noDB == false"
+      include: [ "components/database/**", "applications/billboard/**" ]
+    - include: [ "build.gradle.kts"]
+      chain:
+        - type: ReplaceText
+          condition: "#sonar == true"
+          substitutions:
+            - text: asaikali_example-spring-accelerator
+              with: "#projectKey"
+        - type: ReplaceText
+          condition: "#sonar == false"
+          substitutions:
+            - text: |
+                sonarqube {
+                    properties {
+                        property("sonar.projectKey", "asaikali_example-spring-accelerator")
+                        property("sonar.organization", "asaikali")
+                        property("sonar.host.url", "https://sonarcloud.io")
+                    }
+                }
+              with: "''"
 ```
-
-Select the dashboard titled spring-sensors-{{ session_namespace }}. Here Cody can get a live view of diagnostic information about his running application, and troubleshoot any issues in the deployment.
