@@ -1,7 +1,24 @@
-# Tanzu Application Platform Live Demonstration
+# Developing an Application Accelerator
 
-**Tanzu Application Platform (TAP)** delivers a **developer experience** atop Kubernetes. Operators are able to customize and deploy an **application-aware platform**, instead of requiring developers to write platform-aware applications. Tanzu Application Platform abstracts away  the individual components in the DevSecOps toolchain that is leveraged in building, testing, verifying, deploying, and operating applications. This new experience is accomplished through the addition of enhanced developer tooling, supply chain automation, and coordination of work/separation of concerns between developers, architects, security teams, and operators. Tanzu Application Platform runs on any API-compatible Kubernetes distribution.
+This hands on tutorial walks you step by step through the process of 
+writing a Tanzu Application accelerator. We will provide a starter
+git reposistory containing some opinions for Java applications.
 
-![TAP Overview Diagram](exercises/images/tap-conceptual.png)
-
-This demonstration is intended to walk the audience through through how development teams and operators will interact with the platform to enable iterative development cycles, and secure, automated delivery to production.
+* Organize git repo according to corporate recommendations 
+* Gradle multi-module project 
+    - Algin classpath dependency versions using a Gradle platform rather than the  Spring Boot Plugin 
+    - Use the Java Application plugin to produce a fat jar rather than the Spring Boot Plugin 
+    - Follow gradle best practices for organizing build logic
+* Enforce a consistent code formatting style using check style &     spotless plugin 
+    - Google Java Formatting Style
+    - SQL formatting
+    - Fail the build on code style violations 
+* Can run complex integration tests after checkout without any external dependencies beyond docker 
+    - Run browser based tests using Selenium and capture video recording of test execution 
+    - On demand database / API integration tests that leverage test containers for test isolation and reproducibility 
+* Tooling integrations 
+    - GitHub actions pipeline
+    - SonarQube integration 
+* Allow developers to select 
+    - Java version (11 or 17)
+    - Database or no database 
