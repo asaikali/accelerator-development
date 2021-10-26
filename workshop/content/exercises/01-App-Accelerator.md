@@ -39,3 +39,16 @@ Metrics-server is running at https://tanzuclust-morganstanleypoc-267ba7-144ebf6b
 
 ```
 
+## get a list of deployed accelerators 
+
+Set the deafult namespace for the kubectl cli 
+```execute
+kubectl config set-context --current --namespace=default
+```
+
+The accelerators are registerd using a custom K8s CRD so you can get a
+list of all the CRDs using the command.
+
+```execute
+kubectl config set-context --current --namespace=default
+```
