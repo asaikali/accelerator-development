@@ -8,7 +8,6 @@ Open the application accelerator running on AKS cluster
 name: Accelerator
 url: http://20.42.34.233/dashboard/
 ```
-
 Click around the accelerator gui, in the next section of the workshop 
 we will register a new accelerator, but first we need to configure 
 `kubectl` to be able to access the AKS cluster running the accelerator.
