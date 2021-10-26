@@ -13,7 +13,13 @@ clone the git repo you have
 git clone url-to-your-cloned-repo
 ```
 
-## define Accelerator CRD file 
+## Define Accelerator CRD file 
+
+Create a placeholder for Accelerator CRD file
+
+``` execute 
+touch example-spring-accelerator/reg.yaml
+```
 
 Use the integrated VSCode editor to create a file called `example-spring-accelerator/reg.yaml` in the cloned 
 repo
