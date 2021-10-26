@@ -106,10 +106,11 @@ url: http://20.42.34.233/dashboard/
 ![Initial Accelerator](images/initial-accelerator.png)
 
 Once you click on your accelerator, try the "EXPLORE FILES" button.
-Also, you can click "GENERATE PROJECT" button to download a project.
-Notice that the downloaded zip file matches the accelerator name.
 
 ![Inside Accelerator](images/inside-accelerator.png)
+
+Also, you can click "GENERATE PROJECT" button to download a project.
+Notice that the downloaded zip file matches the accelerator name.
 
 In the next step, we will add options to accelerator by creating an 
 `accelerator.yaml` file with metadata that will be used by the Accelerator Portal.
