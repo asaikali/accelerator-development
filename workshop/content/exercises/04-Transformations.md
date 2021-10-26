@@ -1,8 +1,8 @@
 ## Configure Transformations 
 
-To build the acceleartor we wrote the code that expreses the 
-opinios that we want to share with deveolpers and placed the code
-in a git repo. Then we defined an `accelerator.yaml` file with
+To build the accelerator we wrote the code that expreses the 
+opinioms that we want to share with deveolpers and placed the code
+in a git repo. Then, we defined an `accelerator.yaml` file with
 metadata to help users find the acceleartor and UI forms that 
 enables users to set values and bind them to variables which
 we will now use. 
@@ -24,23 +24,22 @@ engine:
       exclude: [ "reg.yaml", "components/database/**", "applications/**", "ytt/**" ]
 ```
 
-The engine executes a serries of transformations against the files in the 
+The engine executes a series of transformations against the files in the 
 git repo containing the code of the accelerator. In the configuration in the
 code snippet we are including all the files in the repo and then execluding 
-a set of files that we will conditionaly inclued in a serries of transformatons.
+a set of files that we will conditionaly include in a series of transformations.
 
 Refresh the accelerator page and click on the explore button notice that 
-the execluded files don't show up in the generated output.
+the excluded files don't show up in the generated output.
 
-make sure to look at the contents of th `accelerator-log.md` to see how the 
-acceleartor ran transformations on the git repo. 
+Make sure to look at the contents of the `accelerator-log.md` to see how the 
+accelerator ran transformations on the git repo. 
 
-### Set the gradle project name
+### Set the Gradle project name
 
 The `settings.gradle.kts` file contains the name of the project. We should 
-set the gradle project to match the artificatId entered by the user in the
-accelerator UI. 
-
+set the Gradle project to match the artifactId entered by the user in the
+accelerator UI.
 
 Copy and paste the code snippet below into the `accelerator.yaml` 
 as the child of the merge element you copy and pasted earlier.  
@@ -54,17 +53,17 @@ as the child of the merge element you copy and pasted earlier.
               with: "#artifactId"
 ```
 
-commit your changes, then reload the acclerator page. change the artifcat id 
-on click on the "explore buton" then open the `settings.gradle.kts` file
-and notice that the project name matches the value of the artificat id.
-the `#artificatId` reference in the snippent above is a varabile refrence.
+Commit your changes, then reload the accelerator page. Change the artifact id 
+on click on the "EXPLORE FILEs" button then open the `settings.gradle.kts` file
+and notice that the project name matches the value of the artifact id.
+The `#artifactId` reference in the snippet above is a varabile reference.
 The transformation engine uses Spring Expression Language to reference 
 variables. 
 
 
 ### Conditionaly react to the Java version 
 
-copy and paste the sinppet below into the `accelerator.yaml` as a child 
+Copy and paste the snippet below into the `accelerator.yaml` as a child 
 of the top level merge node. 
 
 ```copy
@@ -77,16 +76,17 @@ of the top level merge node.
               with: "'JavaLanguageVersion.of(17)'"
 ```
 
-commit the change and refresh the accelerator page. change the Java language version
-click on the explore button and validate that the file 
+Commit the change and refresh the accelerator page. Change the Java language version
+click on the "EXPLORE FILES" button and validate that the file 
 `buildSrc/src/main/kotlin/java-library-conventions.gradle.kts` has the correct 
-java version. 
+Java version. 
+
 
 ## Final configuration 
 
 The code below shows the full configuration of the engine you can optionally
 cut and paste it into the `acclerator.yaml` to enable all the transformations
-associated with the ui. 
+associated with the UI. 
 
 ```copy
 engine:
