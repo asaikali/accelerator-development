@@ -10,7 +10,7 @@ Open the repo below and fork it into your personal Github account
 url: https://github.com/adib-samples/example-spring-accelerator
 ```
 
-![Fork Github project](images/accelerator-development-fork.png)
+![Fork Github project](images/fork.png)
 
 Clone the git repo you have just created by forking
 
