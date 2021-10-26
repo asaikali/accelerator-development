@@ -1,5 +1,3 @@
-# Environment Setup
-
 ## validate access to the runnig accelerator portal 
 
 Open the application accelerator running on AKS cluster
