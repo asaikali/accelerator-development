@@ -77,4 +77,7 @@ weatherforecast-fsharp       True             27d
 weatherforecast-steeltoe     True             27d
 ```
 
+```dashboard:create-dashboard
+name: Accelerator
+url: http://20.42.34.233/dashboard/
 ```
