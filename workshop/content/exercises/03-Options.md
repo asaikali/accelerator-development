@@ -5,16 +5,23 @@ of the git repo that was referenced from the `reg.yaml` you created in the previ
 steup. `accelerator.yaml` defines all the options that users can set on the accelerator
 along with transformation rules to apply to the git repo that is source of the accelerator.
 
-Using the integrated vscode editor create a file  `example-spring-accelerator/accelerator.yaml` 
+### create the accelerator.yaml file 
+
+In order to avoid having to log into yoru account from the integarted terminal 
+the following steps should be done directly in the GitHub.com Web UI.
+
+Create a file file at the root of the repo you froked in the previous step called
+`accelerator.yaml` commit the empty file. 
 
 # define metadata for the accelerator 
 
-copy and paste the content below into the `accelerator.yaml` file 
+copy and paste the content below into the `accelerator.yaml` file using 
+the github.com UI and set the display name to github userid. 
 
-```copy
+```copy-and-edit
 accelerator:
-  displayName: ACME Inc. Spring Web Application
-  description: An example starting template for offical spring web application at ACME Inc.
+  displayName: 
+  description: An example starting template for a spring web app
   iconUrl: https://raw.githubusercontent.com/sample-accelerators/icons/master/icon-cloud.png
   tags:
     - Java
@@ -24,8 +31,14 @@ accelerator:
     - Test Patterns
 ```
 
-add the file to git and commit it 
+commit the changes on the github UI. 
 
-```execute 
-git -C ~/example-spring-accelerator add -A && commit -m "add accelerator.yaml~ && git push
+refresh the accelerator dashboard
+
+```dashboard:open-url
+url: http://20.42.34.233/dashboard/
 ```
+
+Your accelerator should now have a description, try finding your accelerator using the tags 
+that you registered under in the `accelerator.yaml` file. 
+
