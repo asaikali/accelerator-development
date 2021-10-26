@@ -1,13 +1,13 @@
 apiVersion: training.eduk8s.io/v1alpha1
 kind: TrainingPortal
 metadata:
-  name: accelerator
+  name: acc
 spec:
   portal:
     title: Acclerator Development Workshop
     registration:
-      type: one-step
-      enabled: true
+      type: anonymous
+      # enabled: true
     updates:
       workshop: true
     sessions:

@@ -10,7 +10,7 @@ spec:
   duration: 120m
   url: https://github.com/asaikali/accelerator-development
   content:
-    files: github.com/asaikali/accelerator-development/workshop
+    files: github.com/asaikali/accelerator-development
   session:
     env:
       - name: GITEA_PASSWORD
