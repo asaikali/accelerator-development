@@ -6,10 +6,10 @@ A starter git reposistory containing the Java opinions below is provided for you
 
 * Organize git repo according to corporate recommendations 
 * Gradle multi-module project 
-    - Algin classpath dependency versions using a Gradle platform rather than the  Spring Boot Plugin 
+    - Align classpath dependency versions using a Gradle platform rather than the Spring Boot Plugin 
     - Use the Java Application plugin to produce a fat jar rather than the Spring Boot Plugin 
-    - Follow gradle best practices for organizing build logic
-* Enforce a consistent code formatting style using check style &     spotless plugin 
+    - Follow Gradle best practices for organizing build logic
+* Enforce a consistent code formatting style using check style & spotless plugin 
     - Google Java Formatting Style
     - SQL formatting
     - Fail the build on code style violations 
