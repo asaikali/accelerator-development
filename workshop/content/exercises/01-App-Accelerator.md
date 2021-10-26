@@ -23,5 +23,19 @@ file: .kube/config
 
 **replace the content of the file with the one provided over the chat**
 
+execute the command
 
+```execute
+kubectl cluster-info
+```
+
+You should output similar to the one below, indicating you are connected 
+to the PoC AKS cluster
+
+```text
+Kubernetes control plane is running at https://tanzuclust-morganstanleypoc-267ba7-144ebf6b.hcp.eastus.azmk8s.io:443
+CoreDNS is running at https://tanzuclust-morganstanleypoc-267ba7-144ebf6b.hcp.eastus.azmk8s.io:443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://tanzuclust-morganstanleypoc-267ba7-144ebf6b.hcp.eastus.azmk8s.io:443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
+```
 
