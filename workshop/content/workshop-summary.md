@@ -1,1 +1,1 @@
-That concludes our high level overview of Tanzu Application Platform.
+That concludes our workshop for creating an accelerator.

@@ -50,5 +50,23 @@ The accelerators are registerd using a custom K8s CRD so you can get a
 list of all the CRDs using the command.
 
 ```execute
-kubectl config set-context --current --namespace=default
+kubectl get accelerators
 ```
+
+You should see output similar to the one below 
+
+```text
+NAME                         READY   REASON   AGE
+example-spring-accelerator   True             21d
+hello-fun                    True             27d
+hello-ytt                    True             27d
+node-express                 True             27d
+spring-petclinic             True             27d
+spring-sql-jpa               True             27d
+tanzu-dotnet-webapi          True             22d
+tanzu-java-web-app           True             27d
+weatherforecast-csharp       True             27d
+weatherforecast-fsharp       True             27d
+weatherforecast-steeltoe     True             27d
+```
+
