@@ -8,10 +8,10 @@ modules:
     exercises/02-Register:
         name: Register An Accelerator
         exit_sign: Configure Options
-    exercises/03-Supply-Chain:
+    exercises/03-Options:
         name: Configure Options
         exit_sign: Configure Transformations
-    exercises/04-Deployment:
+    exercises/04-Transformations:
         name: Configure Transformations
         exit_sign: Workshop Summary
     workshop-summary:
