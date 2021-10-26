@@ -4,8 +4,8 @@ You will need a github account to complete this step.
 
 ### fork the sample code repo 
 Open the repo below and fork it into your personal github account 
-```url
-https://github.com/adib-samples/example-spring-accelerator
+```dashboard:open-url
+url: https://github.com/adib-samples/example-spring-accelerator
 ```
 
 clone the git repo you have 
