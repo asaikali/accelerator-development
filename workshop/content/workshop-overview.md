@@ -1,6 +1,8 @@
 This hands on tutorial walks you step by step through the process of 
-writing a Tanzu Application accelerator. We will provide a starter
-git reposistory containing some opinions for Java applications.
+writing a Tanzu Application accelerator. This interactive workshop
+environment is running on a Kuberenetes cluster using the Tanzu Learning Center.
+
+A starter git reposistory containing the Java opinions below is provided for you, so you can focus on learning how to write the accelerator configuration. 
 
 * Organize git repo according to corporate recommendations 
 * Gradle multi-module project 
