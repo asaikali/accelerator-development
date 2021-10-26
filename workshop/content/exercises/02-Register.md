@@ -47,7 +47,7 @@ spec:
       branch: main
 ```
 
-## Update the YAML file
+### Update the YAML file
 
 Update the name of the accelerator to be the same as your github id, for 
 example my github user id is `asaikali` so the Accelerator name will be 
@@ -97,16 +97,20 @@ weatherforecast-steeltoe     True             27d
 ## Explore your new Accelerator
 
 Open the Accelerator Portal and you should be able to see your accelerator 
-listed in the list of avilable acceleartor.
+listed in the list of avilable accelerator.
 
 ```dashboard:open-url
 url: http://20.42.34.233/dashboard/
 ```
 
-Once you click on your accelerator, try the "Explore files button" and also 
-Genearte and downoald a project. Notice that the downloaded zip file matches
-the accelerator name.
+![Initial Accelerator](images/initial-accelerator.png)
 
-In the next step, we will add options to acceleartor by creating an 
+Once you click on your accelerator, try the "EXPLORE FILES" button.
+Also, you can click "GENERATE PROJECT" button to download a project.
+Notice that the downloaded zip file matches the accelerator name.
+
+![Inside Accelerator](images/inside-accelerator.png)
+
+In the next step, we will add options to accelerator by creating an 
 `accelerator.yaml` file with metadata that will be used by the Accelerator Portal.
 
