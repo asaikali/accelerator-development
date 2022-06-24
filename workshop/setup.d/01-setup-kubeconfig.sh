@@ -1,1 +1,0 @@
- echo $KCONF  | base64 -d  > ~/.kube/config 
