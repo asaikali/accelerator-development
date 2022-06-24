@@ -1,1 +1,1 @@
-That concludes our workshop for creating an accelerator.
+That concludes our workshop for using Tanzu Application Platform.

@@ -4,10 +4,10 @@ modules:
     activate:
     - workshop-overview
     - exercises/01-App-Accelerator
-    - exercises/02-Register
-    - exercises/03-Options
-    - exercises/04-Transformations
-    - workshop-summary
-    vars:
-    - name: harbor_project_id
-      value: "9999"
+    # - exercises/02-Register
+    # - exercises/03-Options
+    # - exercises/04-Transformations
+    # - workshop-summary
+    # vars:
+    # - name: harbor_project_id
+    #   value: "9999"

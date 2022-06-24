@@ -1,24 +1,24 @@
-This hands on tutorial walks you step by step through the process of 
-writing a Tanzu Application accelerator. This interactive workshop
-environment is running on a Kuberenetes cluster using the Tanzu Learning Center.
+This session shows how to take a web application source code and deploy it to a Kubernetes cluster using Tanzu Application platform. This is a hands-on workshop attendees will be provided with a browser- based workshop environment where you will do the following: 
 
-A starter git reposistory containing the Java opinions below is provided for you, so you can focus on learning how to write the accelerator configuration. 
+    · Generate a starter application using TAP application accelerator 
 
-* Organize git repo according to corporate recommendations 
-* Gradle multi-module project 
-    - Align classpath dependency versions using a Gradle platform rather than the Spring Boot Plugin 
-    - Use the Java Application plugin to produce a fat jar rather than the Spring Boot Plugin 
-    - Follow Gradle best practices for organizing build logic
-* Enforce a consistent code formatting style using check style & spotless plugin 
-    - Google Java Formatting Style
-    - SQL formatting
-    - Fail the build on code style violations 
-* Can run complex integration tests after checkout without any external dependencies beyond docker 
-    - Run browser based tests using Selenium and capture video recording of test execution 
-    - On demand database / API integration tests that leverage test containers for test isolation and reproducibility 
-* Tooling integrations 
-    - GitHub actions pipeline
-    - SonarQube integration 
-* Allow developers to select 
-    - Java version (11 or 17)
-    - Database or no database 
+    · Containerize an application using cloud native buildpacks without writing docker files 
+
+    · Deploy an application to Kubernetes without writing any Kubernetes YAML manifests 
+
+    · Automated path to production using supply chain with cartographer 
+
+    · Register the application with the backstage software catalog 
+
+    · View the application using the App Live View     
+
+    · Visualize the path to production using the supply chain using TAP GUI 
+
+    · Serverless function with scale to 0 capability 
+
+By the end of the workshop attendees will have a solid understanding of the capabilities that exist in TAP along with hands on experience to assess how TAP can solve the most difficult DevSecOps problems that organizations are up against as they try to automate the path to production. Come and experience what TAP can do for you and your team. 
+
+Duration: 3 hours 
+
+Audience: DevOps, Architects, developers, and information security practitioner 
+
